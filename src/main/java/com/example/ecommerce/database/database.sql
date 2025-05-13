@@ -45,6 +45,8 @@ CREATE TABLE customer (
 -- Bảng admin
 CREATE TABLE admin (
     adminid BIGINT PRIMARY KEY,
+    adminusername VARCHAR(255) NOT NULL UNIQUE, 
+    adminpassword VARCHAR(255) NOT NULL , 
     adminname VARCHAR(255),
     email VARCHAR(255),
     phone VARCHAR(20),
@@ -133,8 +135,8 @@ INSERT INTO customer (customerid, username, password, customername, firstname, l
 
 INSERT INTO cart (cartid, customerid) VALUES (1,1);
 
-INSERT INTO admin (adminid, adminname, email, phone, gender) VALUES 
-(1, 'Admin One', 'admin@example.com', '0911111111', 'Female');
+INSERT INTO admin (adminid, adminusername, adminpassword, adminname, email, phone, gender) VALUES 
+(1,'hung','2005', 'Admin One', 'admin@example.com', '0911111111', 'Male');
 
 INSERT INTO storestaff (staffname, email, phone, gender) VALUES 
 ('Alice Staff', 'alice@store.com', '0900000000', 'Female');

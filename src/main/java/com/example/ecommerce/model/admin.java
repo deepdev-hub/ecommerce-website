@@ -1,14 +1,46 @@
 package com.example.ecommerce.model;
 
-
-public class admin {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
+@Entity
+public class Admin {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long adminid;
+    @NotBlank(message = "truong nay khong duoc de trong")
+    String adminusername;
+    @NotBlank(message = "truong nay khong duoc de trong")
+    String adminpassword;
+
     String adminname;
     String email;
     String phone;
     String gender;
 
-    public admin() {
+    public String getAdminusername() {
+        return adminusername;
+    }
+
+    public void setAdminusername(String adminusername) {
+        this.adminusername = adminusername;
+    }
+
+    public String getAdminpassword() {
+        return adminpassword;
+    }
+
+    public void setAdminpassword(String adminpassword) {
+        this.adminpassword = adminpassword;
+    }
+
+    public Admin() {
     }
 
     public Long getAdminid() {
@@ -49,6 +81,21 @@ public class admin {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Admin(Long adminid, String adminusername, String adminpassword, String adminname, String email, String phone,
+            String gender) {
+        this.adminid = adminid;
+        this.adminusername = adminusername;
+        this.adminpassword = adminpassword;
+        this.adminname = adminname;
+        this.email = email;
+        this.phone = phone;
+        this.gender = gender;
+    }
+    public Admin( String adminusername, String adminpassword) {
+        this.adminusername = adminusername;
+        this.adminpassword = adminpassword;
     }
     
 }

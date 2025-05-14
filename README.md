@@ -33,6 +33,7 @@
 - Java 17 trở lên
 - Maven 3.4.5
 - IDE: VS Code
+- Extensions trong VS Code: Spring Boot Extension Pack, Maven for java
 
 ### Các bước thực hiện:
 

@@ -8,11 +8,11 @@
 - **Java**
 - **Spring Boot** – Xây dựng API và xử lý nghiệp vụ
 - **Maven** – Quản lý project và dependencies
-
+- **PostgreSQL** - Quản lý dữ liệu
+- **Spring Data JPA** – Tương tác với cơ sở dữ liệu (ORM)
+- **Maven** – Quản lý project và dependencies
 ### Frontend:
 - **HTML/CSS** – Giao diện người dùng đơn giản, dễ sử dụng
-
-## Cấu trúc thư mục
 
 
 ##  Tính năng chính
@@ -21,8 +21,11 @@
 -  Tìm kiếm sản phẩm theo tên hoặc danh mục
 -  Xem chi tiết sản phẩm
 -  Thêm sản phẩm vào giỏ hàng
+-  Hiển thỉ thông tin thanh toán
+-  Hiển thị thông tin chi tiết sản phẩm
+-  Tương tác dữ liệu bằng JPA và SQL
 -  Đặt hàng và quản lý đơn hàng
--  (Tuỳ chọn) Quản trị sản phẩm: thêm, xoá, cập nhật (cho admin)
+-  Quản trị sản phẩm: thêm, xoá, cập nhật (cho admin)
 
 ## Cài đặt và chạy dự án
 
@@ -43,3 +46,5 @@ mvn clean install
 
 # 3. Chạy ứng dụng
 mvn spring-boot:run
+
+Truy cập vào http://localhost:8080 để sử dụng ứng dụng.

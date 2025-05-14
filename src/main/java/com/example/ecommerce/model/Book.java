@@ -1,8 +1,14 @@
 package com.example.ecommerce.model;
 
 import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book extends Product {    
     String isbn;
     String author;
@@ -13,52 +19,7 @@ public class Book extends Product {
         System.out.println("price: "+this.sellprice);
         System.out.println("quantity: "+this.quantity);
         System.out.println("author: "+this.author);
-    }
-
-
-    public Book(String isbn, String author, String publisher) {
-        this.isbn = isbn;
-        this.author = author;
-        this.publisher = publisher;
-    }
-
-
-    public Book(Long productid, String name, int quantity, Double importprice, Double sellprice, String image, Double tax,
-            String status, String description, Long categoryid, String isbn, String author, String publisher) {
-        super(productid, name, quantity, importprice, sellprice, image, tax, status, description, categoryid);
-        this.isbn = isbn;
-        this.author = author;
-        this.publisher = publisher;
-    }
-
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    
-    
+    } 
 }
 
 

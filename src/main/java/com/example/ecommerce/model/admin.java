@@ -1,54 +1,29 @@
 package com.example.ecommerce.model;
 
-
-public class admin {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class Admin {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long adminid;
+    @NotBlank(message = "truong nay khong duoc de trong")
+    String adminusername;
+    @NotBlank(message = "truong nay khong duoc de trong")
+    String adminpassword;
     String adminname;
     String email;
     String phone;
-    String gender;
-
-    public admin() {
-    }
-
-    public Long getAdminid() {
-        return adminid;
-    }
-
-    public void setAdminid(Long managerid) {
-        this.adminid = managerid;
-    }
-
-    public String getAdminname() {
-        return adminname;
-    }
-
-    public void setAdminname(String managername) {
-        this.adminname = managername;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-    
+    String gender;    
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+        <title>admin signin</title>
+    </head>
+    <body>
+        <div th:insert = "fragments/header :: header"></div>
+        <h1>Signin page</h1>
+        
+        <form th:action="@{/test}" th:object = "${admin}" method="post">
+            <label>username</label>
+            <p th:text = "${message}"></p>
+            <input type="text" name="adminusername" id="adminusername" th:fields ="*{adminusername}">
+            <br/>
+            <label>password</label>
+            <input type="password" name="adminpassword" id ="adminusername" th:fields="*{adminpassword}">
+            <!-- <span >hien</span> -->
+            <br/>
+            <button type = "submit">signin</button>
+        </form>
+    </body>
+</html>

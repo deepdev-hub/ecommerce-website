@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="ice-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <h2>Trang đăng ký admin</h2>
+    <div class="login-container">
+        <div class="login-tabs">
+            <a href = "login">
+                <button class="tab active">Đăng nhập</button>
+            </a>
+            <a href="signup">
+                <button class="tab active">Đăng ký</button>
+            </a>
+        </div>
+
+            <form class="form-group" th:action="@{/admin/signup}" th:object = "${admin}" method="post">
+            <div>
+                <label for="adminusername">Adminusername</label>
+                <input type="text" id="adminusername" th:field = "*{adminusername}" placeholder="Nhập vao adminusername">
+            <div th:if = "${#fields.hasErrors('adminusername')}" th:errors = "*{adminusername}"></div>
+            </div>
+            <div>
+                <label for="adminpassword">adminpassword</label>
+                <div class="password-field">
+
+                    <input type="password" id="adminpassword" th:field = "*{adminpassword}" placeholder="Nhập mat khau">
+                    <span class="show-password">Hien</span>
+                </div>
+            </div>
+        <button type = "submit">submit</button>
+    </form>
+</body>
+</html>

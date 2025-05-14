@@ -64,11 +64,22 @@ public class StoreStaff {
     public void setWorkhour(int workhour) {
         this.workhour = workhour;
     }
-    
-    public StoreStaff() {}
-    public StoreStaff(int employeeid, String employeename, String firstname, String lastname, String email,
-            String phone, String gender, String position, String address, Date startdate, int workhour, int managerid) {
-        this.storestaffname = employeename;
+    public Long getStorestaffid() {
+        return storestaffid;
+    }
+    public void setStorestaffid(Long storestaffid) {
+        this.storestaffid = storestaffid;
+    }
+    public Long getAdminid() {
+        return adminid;
+    }
+    public void setAdminid(Long adminid) {
+        this.adminid = adminid;
+    }
+    public StoreStaff(Long storestaffid, String storestaffname, String email, String phone, String gender,
+            String position, String address, Date startdate, int workhour, Long adminid) {
+        this.storestaffid = storestaffid;
+        this.storestaffname = storestaffname;
         this.email = email;
         this.phone = phone;
         this.gender = gender;
@@ -76,6 +87,9 @@ public class StoreStaff {
         this.address = address;
         this.startdate = startdate;
         this.workhour = workhour;
+        this.adminid = adminid;
     }
+    
+    
     
 }

@@ -1,5 +1,6 @@
 package com.example.ecommerce.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class AdminService {
     public boolean existAdmin(String adminusername){
         return adminRepository.findByAdminusername(adminusername)!=null;
     }
+    public List<Admin> getAllAdmin(){
+        return adminRepository.findAll();
+    } 
 
     
 }

@@ -23,6 +23,7 @@ public class AdminSignupController {
         model.addAttribute("admin", new Admin());
         return "admin-signup";
     }
+
     @PostMapping("/admin/signup")
     public String dosignup(@ModelAttribute("admin") @Valid Admin admin, BindingResult result, Model model ){
         if(adminService.existAdmin(admin.getAdminusername())){
@@ -33,7 +34,7 @@ public class AdminSignupController {
         }
         adminService.saveAdmin(admin);
         model.addAttribute("message", "signup successful");
-        return "redirect:/signup";
+        return "redirect:admin/login";
     }
 
 }

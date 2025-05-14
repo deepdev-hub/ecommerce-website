@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <meta name="viewport" content="ice-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Trang admin đăng nhập</h2>
+    <div class="login-container">
+        <div th:insert="fragments/header :: header"></div>
+        <div class="login-tabs">
+            <a href = "/admin/login">
+                <button class="tab active">Đăng nhập</button>
+            </a>
+            <a href = "/admin/signup">
+                <button class="tab">Đăng ký</button>
+            </a>
+        </div>
+        <form th:action="@{/admin/login}" th:object = "${admin}" method="post">
+            <div class="form-group">
+                <label for="adminusername">Số điện thoại/Email</label>
+                <input type="text" name="adminusername" id="adminusername" th:fields ="*{adminusername}" >
+            </div>
+            
+            <div class="form-group">
+                
+                <label for="password">password</label>
+                <div class="password-field">
+                    <input type="password" name="adminpassword" id ="adminusername" th:fields="*{adminpassword}" >
+                    <span class="show-password">show</span>
+                </div>
+            </div>
+
+            <div class="form-options">
+                <a href="admin/forgotPassword" class="forgot-password">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="login-button">Đăng nhập</button> 
+        </form>
+    </div>
+    <div th:insert = "fragments/footer :: footer"></div>
+</body>
+</html>

@@ -29,7 +29,7 @@
 ### Yêu cầu:
 - Java 17 trở lên
 - Maven 3.4.5
-- IDE hỗ trợ Java (IntelliJ IDEA, Eclipse, VS Code...)
+- IDE: VS Code
 
 ### Các bước thực hiện:
 

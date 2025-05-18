@@ -97,9 +97,7 @@ CREATE TABLE cart_items (
     cartid BIGINT,
     productid BIGINT,
     quantity INTEGER DEFAULT 1,
-    PRIMARY KEY (cartid, productid),
-    FOREIGN KEY (cartid) REFERENCES cart(cartid) ON DELETE CASCADE,
-    FOREIGN KEY (productid) REFERENCES product(productid)
+    cartitemid BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY
 );
 CREATE TABLE inventory_items (
     inventoryid BIGINT,

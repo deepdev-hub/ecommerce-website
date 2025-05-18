@@ -22,6 +22,7 @@ public class AdminLoginController {
     private AdminService adminService;
     @GetMapping("/admin/login")
     public String showLoginForm(Model model) {
+        
         model.addAttribute("admin", new Admin() );
         return "admin-login";
     }
@@ -31,7 +32,7 @@ public class AdminLoginController {
         List<Admin> allAdmin = adminService.getAllAdmin();
         for(Admin adminsignuped: allAdmin){
             if(adminsignuped.getAdminusername().equals(adminForm.getAdminusername())&&adminsignuped.getAdminpassword().equals(adminForm.getAdminpassword())){
-                session.setAttribute("currentAdmin", adminsignuped);
+                session.setAttribute("currentadmin", adminsignuped);
                 model.addAttribute("message", "success login ");
                 return "redirect:/";
             } 

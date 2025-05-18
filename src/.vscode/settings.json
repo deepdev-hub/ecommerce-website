@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "main/java/com/example/ecommerce/model",
+        "main/java/com/example/ecommerce/database",
+        "main/java/com/example/ecommerce/controller"
+    ]
+}

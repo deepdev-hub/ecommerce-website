@@ -1,14 +1,21 @@
 package com.example.ecommerce.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-public class admin {
+public class Admin {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long adminid;
+    String adminusername;
+    String adminpassword;
     String adminname;
     String email;
     String phone;
-    String gender;
+    String gender;   
 
-    public admin() {
+    public Admin() {
     }
 
     public Long getAdminid() {
@@ -49,6 +56,22 @@ public class admin {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getAdminusername() {
+        return adminusername;
+    }
+
+    public void setAdminusername(String adminusername) {
+        this.adminusername = adminusername;
+    }
+
+    public String getAdminpassword() {
+        return adminpassword;
+    }
+
+    public void setAdminpassword(String adminpassword) {
+        this.adminpassword = adminpassword;
     }
     
 }

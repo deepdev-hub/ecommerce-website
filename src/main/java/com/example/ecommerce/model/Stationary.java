@@ -1,12 +1,21 @@
 package com.example.ecommerce.model;
 
+import jakarta.persistence.*;
 
+@Entity
+@PrimaryKeyJoinColumn(name = "product_id")
 public class Stationary extends Product {
 
     String brand;
     String type;
 
     public Stationary() {super();}
+
+
+    public Stationary(String brand, String type) {
+        this.brand = brand;
+        this.type = type;
+    }
 
 
     public Stationary(Long id, String name, int  quantity, Double importprice, Double sellprice, String image,

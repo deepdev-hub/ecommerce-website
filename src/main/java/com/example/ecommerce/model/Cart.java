@@ -2,8 +2,22 @@ package com.example.ecommerce.model;
 
 import java.util.ArrayList;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class Cart {
-    Long customerid;
+    @Id
+    Long id; 
+    
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "id")
+    private Customer customer;
+
     ArrayList<Product> itemsOrdered;
 
     public Cart() {
@@ -21,7 +35,6 @@ public class Cart {
     public double totalCost() {
         double sum = 0;
         for (Product item : itemsOrdered) {
-            sum+= item.getSellprice();
         }
         return sum;
     }
@@ -30,13 +43,7 @@ public class Cart {
         return itemsOrdered;
     }
 
-    public Long getCustomerid() {
-        return customerid;
-    }
-
-    public void setCustomerid(Long customerid) {
-        this.customerid = customerid;
-    }
+    
 
     public void setItemsOrdered(ArrayList<Product> itemsOrdered) {
         this.itemsOrdered = itemsOrdered;

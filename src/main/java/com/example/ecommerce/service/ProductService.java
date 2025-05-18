@@ -18,4 +18,12 @@ public class ProductService {
     public Product getProductById(Long id){
         return  productRepository.findById(id).orElse(null);
     }
+
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
+    }
 }

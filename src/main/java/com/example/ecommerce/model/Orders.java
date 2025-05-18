@@ -2,6 +2,9 @@ package com.example.ecommerce.model;
 
 
 import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 // @Entity
 // @Table(name="order")
 public class Orders {
@@ -14,6 +17,15 @@ public class Orders {
     Long storestaffid;
     Long customerid;
 
+    
+
+    public Long getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(Long orderid) {
+        this.orderid = orderid;
+    }
 
     public Date getOrderdate() {
         return orderdate;
@@ -47,13 +59,7 @@ public class Orders {
         this.totalamount = totalAmount;
     }
 
-    public Long getOrderid() {
-        return orderid;
-    }
-
-    public void setOrderid(Long orderid) {
-        this.orderid = orderid;
-    }
+    
 
     public Long getStorestaffid() {
         return storestaffid;
@@ -81,5 +87,6 @@ public class Orders {
         this.storestaffid = storestaffid;
         this.customerid = customerid;
     }
+
     
 }

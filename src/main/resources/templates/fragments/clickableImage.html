@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="clickableImage(product)">
+        <a th:href="@{'/product/' + ${product.id}}">
+            <img th:src="@{${product.imageUrl}}" alt="Ảnh sản phẩm" width="150" style="cursor:pointer;" />
+        </a>
+    </div>
+</body>
+</html>

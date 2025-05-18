@@ -1,8 +1,19 @@
 package com.example.ecommerce.model;
-// @Table(name="customer")
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
 public class Customer {
-    // @Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long customerid;
+
     String username;
     String password;
     String customername;
@@ -13,6 +24,8 @@ public class Customer {
     String phone;
     String email;
     String address;
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     Cart cart;
 
     public Customer() {

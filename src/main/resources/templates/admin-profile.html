@@ -5,12 +5,27 @@
     </head>
     <body>
         <div th:insert = "fragments/header :: header"></div>
-        <div>
             <!-- <h2>Profile of <span th:text="currentadmin.adminname"></span></h2> -->
-            <p>adminusername: <span th:text="${currentadmin.adminusername}"></span></p>
-            <p>adminpassword: <span th:text="${currentadmin.adminpassword}"></span></p>
+            <p>adminusername: <span th:text="${admin.adminusername}"></span></p>
+            <p>adminpassword: <span th:text="${admin.adminpassword}"></span></p>
+
+            <form class="form-group" th:action="@{/admin/profile}" th:object = "${admin}" method="post">
+                    <div>
+                        <label for="adminusername">new adminusername</label>
+                        <input type="text" id="adminusername" th:field = "*{adminusername}" placeholder="Enter new adminusername">
+                    <div th:if = "${#fields.hasErrors('adminusername')}" th:errors = "*{adminusername}"></div>
+                    </div>
+                    <div>
+                        <label for="adminpassword">new adminpassword</label>
+                        <div class="password-field">
+
+                            <input type="password" id="adminpassword" th:field = "*{adminpassword}" placeholder="Enter new password">
+                            <span class="show-password">Show</span>
+                        </div>
+                    </div>
+                <button type = "submit">submit</button>
+            </form>
             <!-- <a th:href="/logout">Logout</a> -->
-        </div>
         <div th:insert = "fragments/footer :: footer"></div>
     </body>
 </html>

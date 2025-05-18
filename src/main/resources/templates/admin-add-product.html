@@ -6,10 +6,7 @@
 <body>
     <h2>Thêm sản phẩm mới</h2>
 
-    <form th:action="@{/products/add}" th:object="${product}" method="post">
-        <label>Mã sản phẩm:</label>
-        <input type="text" th:field="*{productid}" required/><br/>
-
+    <form th:action="@{/admin/products/add}" th:object="${product}" enctype="multipart/form-data" method="post">
         <label>Tên sản phẩm:</label>
         <input type="text" th:field="*{name}" required/><br/>
 
@@ -23,7 +20,7 @@
         <input type="number" step="0.01" th:field="*{sellprice}" required/><br/>
 
         <label>Link hình ảnh:</label>
-        <input type="text" th:field="*{image}"/><br/>
+        <input type="file" name="imageFile"/><br/>
 
         <label>Thuế (%):</label>
         <input type="number" step="0.01" th:field="*{tax}" /><br/>

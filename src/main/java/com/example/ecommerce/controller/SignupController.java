@@ -11,28 +11,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.ecommerce.model.Customer;
 import com.example.ecommerce.service.CustomerService;
 
-import jakarta.servlet.http.HttpSession;
-
 @Controller
-public class LoginController {
+public class SignupController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/login")
+    @GetMapping("/signup")
     public String showLoginForm(Model model) {
         model.addAttribute("customer", new Customer() );
-        return "login";
+        return "signup";
     }
-    @PostMapping("/login")
-    public String doLogin(@ModelAttribute("customer") Customer customerForm, Model model, HttpSession session) {
+    @PostMapping("/signup")
+    public String doLogin(@ModelAttribute("customer") Customer customerForm, Model model) {
         model.addAttribute("customer", new Customer());
-        if(customerService.getCustomerByCustomerUsername(customerForm.getUsername()).getPassword().equals(customerForm.getPassword())){
-            session.setAttribute("currentcustomer", customerService.getCustomerByCustomerUsername(customerForm.getUsername()));
-            model.addAttribute("message", "success login ");
-            return "redirect:/";
+        if(!customerService.existCustomer(customerForm.getUsername())){
+            customerService.saveCustomer(customerForm);
+            model.addAttribute("message", "success signup ");
+            return "redirect:/login";
             } 
-        model.addAttribute("message", "login failed!");
-        return "redirect:/login";
+        model.addAttribute("message", "signup failed!");
+        return "redirect:/signup";
 
     }
     

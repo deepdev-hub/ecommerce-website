@@ -4,7 +4,8 @@
 // import org.springframework.stereotype.Repository;
 
 // import com.example.ecommerce.model.Cart;
-// import com.example.ecommerce.model.Customer;
-// // @Repository
-// public interface  CartRepository extends JpaRepository<Cart, Customer>{
+
+// @Repository
+// public interface  CartRepository extends JpaRepository<Cart, Long>{
+//     Cart  findByCustomerid(Long customerid);
 // }

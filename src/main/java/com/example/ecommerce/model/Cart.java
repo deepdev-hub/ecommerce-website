@@ -1,47 +1,44 @@
-package com.example.ecommerce.model;
+// package com.example.ecommerce.model;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
+// import java.util.List;
 
-public class Cart {
-    Long customerid;
-    ArrayList<Product> itemsOrdered;
+// import com.example.ecommerce.entity.CartItem;
 
-    public Cart() {
-        itemsOrdered = new ArrayList<>(); 
-    }
+// import jakarta.persistence.CascadeType;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import jakarta.persistence.OneToMany;
+// import jakarta.persistence.Table;
+// import lombok.AllArgsConstructor;
+// import lombok.Data;
+// import lombok.NoArgsConstructor;
+// @Entity
+// @Data
+// @NoArgsConstructor
+// @AllArgsConstructor
+// @Table(name="cart")
+// public class Cart {
+//     @Id
+//     @GeneratedValue(strategy=GenerationType.IDENTITY)
+//     Long cartid;
+//     Customer customer;
+//     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+//     List<CartItem> cartItems =new ArrayList<>();
+//     public void addProduct(Product p) {
+//     }
 
-    public void addProduct(Product p) {
-        if(itemsOrdered.indexOf(p) == -1) itemsOrdered.add(p);
-    }
+//     public void deleteProduct(Product p) {
+//     }
 
-    public void deleteProduct(Product p) {
-        if(itemsOrdered.indexOf(p) != -1) itemsOrdered.remove(p);
-    }
-
-    public double totalCost() {
-        double sum = 0;
-        for (Product item : itemsOrdered) {
-            sum+= item.getSellprice();
-        }
-        return sum;
-    }
-
-    public ArrayList<Product> getItemsOrdered() {
-        return itemsOrdered;
-    }
-
-    public Long getCustomerid() {
-        return customerid;
-    }
-
-    public void setCustomerid(Long customerid) {
-        this.customerid = customerid;
-    }
-
-    public void setItemsOrdered(ArrayList<Product> itemsOrdered) {
-        this.itemsOrdered = itemsOrdered;
-    } 
-    
-
-}
+//     public double totalCost() {
+//         double sum = 0;
+//         // for (Product item : itemsOrdered) {
+//         //     sum+= item.getSellprice();
+//         // }
+//         return sum;
+//     }
+// }
 

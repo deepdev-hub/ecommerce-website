@@ -25,14 +25,6 @@ public class CartService {
     public List<CartItemDTO> getcartItemDTOsByCustomerid(Long customerid){
         Customer customer = customerRepository.findByCustomerid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
         List<CartItem> cart = customer.getCart();
-        System.out.println(".()");
-        System.out.println(".()");
-        System.out.println(".()");
-        System.out.println(".()");
-        System.out.println(customerid);
-        System.out.println(".()");
-        System.out.println(".()");
-        System.out.println(".()");
         for (CartItem elem : cart) {
             System.out.println(elem.getCart_itemsid());
         }
@@ -43,10 +35,9 @@ public class CartService {
             cartItemDTO.setImage(product.getProduct().getImage());
             cartItemDTO.setSellprice(product.getProduct().getSellprice());
             cartItemDTO.setQuantity(product.getQuantity());
-
+            
             return cartItemDTO;
         }).toList();
         return cartItemDTOs;
-
     }
 }

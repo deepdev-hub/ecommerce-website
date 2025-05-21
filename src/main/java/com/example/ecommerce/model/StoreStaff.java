@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class StoreStaff {
     Long storestaffid;
-    
     String storestaffname;
     String email;
     String phone;
@@ -14,14 +13,12 @@ public class StoreStaff {
     Date startdate;
     int workhour;
     Long adminid;
-    
     public String getStorestaffname() {
         return storestaffname;
     }
     public void setStorestaffname(String employeename) {
         this.storestaffname = employeename;
     }
-    
     public String getEmail() {
         return email;
     }
@@ -89,7 +86,4 @@ public class StoreStaff {
         this.workhour = workhour;
         this.adminid = adminid;
     }
-    
-    
-    
 }

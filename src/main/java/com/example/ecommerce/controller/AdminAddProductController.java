@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.ecommerce.model.Book;
 import com.example.ecommerce.model.Product;
 import com.example.ecommerce.repository.ProductRepository;
 
@@ -28,7 +29,7 @@ public class AdminAddProductController {
     // Hiển thị form
     @GetMapping("/admin/products/add")
     public String showProductForm(Model model) {
-        model.addAttribute("product", new Product());
+        model.addAttribute("product", new Book());
         return "admin-add-product";
     }
 

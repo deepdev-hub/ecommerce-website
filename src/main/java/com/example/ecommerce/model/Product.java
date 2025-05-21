@@ -39,8 +39,4 @@ public class Product {
         this.description = description;
         this.categoryid = categoryid;
     }
-    
 }
-
-
-

@@ -1,6 +1,4 @@
 package com.example.ecommerce.controller;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +15,6 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController {
     @Autowired
     private CustomerService customerService;
-
     @GetMapping("/login")
     public String showLoginForm(Model model) {
         model.addAttribute("customer", new Customer() );
@@ -33,7 +30,5 @@ public class LoginController {
             } 
         model.addAttribute("message", "login failed!");
         return "redirect:/login";
-
     }
-    
 }

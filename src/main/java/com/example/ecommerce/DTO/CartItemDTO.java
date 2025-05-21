@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartItemDTO {
+public class CartItemDTO{
     String name;
     String image;
     Double sellprice;
     int quantity;
-
 }

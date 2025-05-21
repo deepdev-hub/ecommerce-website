@@ -12,8 +12,6 @@ import com.example.ecommerce.service.AdminService;
 
 import jakarta.servlet.http.HttpSession;
 
-
-
 @Controller
 public class AdminProfileController {
     @Autowired
@@ -32,6 +30,4 @@ public class AdminProfileController {
         }
         return "redirect:/admin/profile";
     }
-    
-    
 }

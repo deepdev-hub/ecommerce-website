@@ -14,7 +14,6 @@ public class AdminService {
     private AdminRepository adminRepository;
     public Admin getAdminByAdminUsername(String adminusername){ 
         return adminRepository.findByAdminusername(adminusername);
-
     }
     public Optional<Admin> getAdminByAdminId(Long adminid){
         return adminRepository.findById(adminid);
@@ -27,7 +26,5 @@ public class AdminService {
     }
     public List<Admin> getAllAdmin(){
         return adminRepository.findAll();
-    } 
-
-    
+    }
 }

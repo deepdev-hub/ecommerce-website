@@ -38,7 +38,7 @@ public class AdminAddProductController {
         try {
             if(!imageFile.isEmpty()){
                 String fileName = imageFile.getOriginalFilename();
-                String uploadDir="image/";
+                String uploadDir="uploads/";
                 File uploadPath =   new File(uploadDir);
                 if(!uploadPath.exists()){
                     uploadPath.mkdirs();
@@ -48,11 +48,11 @@ public class AdminAddProductController {
                 product.setImage(fileName);
             }
             productRepository.save(product);
-            return "redirect:/admin/products/add"; // hoặc hiển thị thông báo thành công
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
         }
+        return "redirect:/admin/products/add"; // hoặc hiển thị thông báo thành công
     }
 }
 

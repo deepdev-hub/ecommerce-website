@@ -36,7 +36,7 @@
                 <td th:text="${product.sellprice} + ' VND'"></td>
                 <td th:text="${product.tax} + ' %'"></td>
                 <td th:text="${product.status}"></td>
-                <td><img th:src="@{${product.image}}" alt="Ảnh sản phẩm"/></td>
+                <td><img th:src="@{'/image/'+${product.image}}" alt="Image"/></td>
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.categoryid}"></td>
             </tr>

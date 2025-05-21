@@ -1,19 +1,16 @@
-// package com.example.ecommerce.DTO;
+package com.example.ecommerce.DTO;
 
-// import lombok.AllArgsConstructor;
-// import lombok.Data;
-// import lombok.Getter;
-// import lombok.NoArgsConstructor;
-// import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-// @Data
-// @Getter
-// @Setter
-// @NoArgsConstructor
-// @AllArgsConstructor
-// public class CartItemDTO {
-//     private Long productid;
-//     private String name;
-//     private Double sellprice;
-//     private int quantity;
-// }
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CartItemDTO {
+    String name;
+    String image;
+    Double sellprice;
+    int quantity;
+
+}

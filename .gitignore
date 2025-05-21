@@ -34,4 +34,5 @@ build/
 "src/main/resources/application-secret.properties" 
 src/main/resources/application-secret.properties
 *secret*.properties
+src\main\resources\application copy.properties
 

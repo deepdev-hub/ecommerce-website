@@ -1,67 +1,43 @@
-// package com.example.ecommerce.service;
+package com.example.ecommerce.service;
 
-// import java.util.ArrayList;
-// import java.util.List;
-// import java.util.Optional;
+import java.util.List;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-// import com.example.ecommerce.database.CartItemId;
-// import com.example.ecommerce.entity.CartItem;
-// import com.example.ecommerce.model.Cart;
-// import com.example.ecommerce.model.Customer;
-// import com.example.ecommerce.model.Product;
-// import com.example.ecommerce.repository.CartItemRepository;
-// import com.example.ecommerce.repository.CartRepository;
-// import com.example.ecommerce.repository.ProductRepository;
+import com.example.ecommerce.DTO.CartItemDTO;
+import com.example.ecommerce.model.CartItem;
+import com.example.ecommerce.model.Customer;
+import com.example.ecommerce.repository.CartRepository;
+import com.example.ecommerce.repository.CustomerRepository;
+import com.example.ecommerce.repository.ProductRepository;
 
-// @Service
-// public class CartService {
-//     @Autowired
-//     private CartRepository cartRepository;
+@Service
+public class CartService {
+    @Autowired
+    private CartRepository cartRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
+    @Autowired
+    private ProductRepository productRepository;
+    @Transactional
+    public List<CartItemDTO> getcartItemDTOsByCustomerid(Long customerid){
+        Customer customer = customerRepository.findByCustomerid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
+        List<CartItem> cart = customer.getCart();
+        for (CartItem elem : cart) {
+            System.out.println(elem.getCart_itemsid());
+        }
+        List<CartItemDTO> cartItemDTOs = cart.stream().map(product -> {
+            CartItemDTO cartItemDTO = new CartItemDTO();
 
-//     @Autowired
-//     private ProductRepository productRepository;
-
-//     @Autowired
-//     private CartItemRepository cartItemRepository;
-//     public Cart getOrCreateCart(Long customerId) {
-//         Cart cart = cartRepository.findByCustomerid(customerId);
-//         if (cart == null) {
-//             cart = new Cart();
-//             Customer customer = new Customer();
-//             customer.setCustomerid(customerId);
-//             cart.setCustomer(customer);
-//             cartRepository.save(cart);
-//         }
-//         return cart;
-//     }
-//      public void addProductToCart(Long customerId, Long productId, int quantity) {
-//         Cart cart = getOrCreateCart(customerId);
-//         Product product = productRepository.findById(productId)
-//                 .orElseThrow(() -> new RuntimeException("Product not found"));
-
-//         CartItemId cartItemId = new CartItemId(cart.getCartid(), product.getProductid());
-//         Optional<CartItem> existingItemOpt = cartItemRepository.findById(cartItemId);
-
-//         CartItem item;
-//         if (existingItemOpt.isPresent()) {
-//             item = existingItemOpt.get();
-//             item.setQuantity(item.getQuantity() + quantity);
-//         } else {
-//             item = new CartItem();
-//             item.setCart(cart);
-//             item.setProduct(product);
-//             item.setQuantity(quantity);
-//         }
-//         cartItemRepository.save(item);
-//     }
-//      public List<CartItem> getCartItems(Long customerId) {
-//         Cart cart = cartRepository.findByCustomerid(customerId);
-//         if (cart == null) return new ArrayList<>();
-//         return cart.getCartItems();
-//     }
-
-
-// }
+            cartItemDTO.setName(product.getProduct().getName());
+            cartItemDTO.setImage(product.getProduct().getImage());
+            cartItemDTO.setSellprice(product.getProduct().getSellprice());
+            cartItemDTO.setQuantity(product.getQuantity());
+            
+            return cartItemDTO;
+        }).toList();
+        return cartItemDTOs;
+    }
+}

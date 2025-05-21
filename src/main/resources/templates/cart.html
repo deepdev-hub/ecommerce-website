@@ -26,13 +26,12 @@
         </thead>
 
         
-
         <tbody>
             <tr th:each="item : ${cartitems}">
                 
-                <td><input type="checkbox" class="product-checkbox" data-quantity="${item.quantity}" data-price="${item.sellprice * item.quantity}"></td>
+                <td><input type="checkbox" class="product-checkbox" th:attr="data-quantity=${item.quantity}, data-price=${item.sellprice * item.quantity}"></td>
                 <td class="product-info">
-                    <img th:src="@{/image/arya.jpg}" alt="Sách">
+                    <img th:src="@{'/image/' + ${item.image}}" alt="Image">
                     <div>
                         <p th:text="${item.name}">Tên Sách</p>
                         <!-- <small th:text="${item.author}">Tên Nhà Sách</small> -->
@@ -60,6 +59,52 @@
     </div>
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const selectAllCheckbox = document.getElementById("selectAll");
+    const productCheckboxes = document.querySelectorAll(".product-checkbox");
+    const totalDisplay = document.querySelector(".cart-summary .right span");
+    
+    function updateSummary() {
+        let totalItems = 0;
+        let totalPrice = 0;
+
+        productCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                const quantity = parseInt(cb.dataset.quantity);
+                const price = parseFloat(cb.dataset.price);
+                console.log(`Checkbox selected - Quantity: ${quantity}, Price: ${price}`); // Debug
+
+                totalItems += quantity;
+                totalPrice += price;
+            }
+        });
+
+        totalDisplay.innerHTML = `Tổng (${totalItems} sản phẩm): <strong>${formatCurrency(totalPrice)}₫</strong>`;
+    }
+
+    function formatCurrency(number) {
+        return number.toLocaleString('vi-VN');
+    }
+
+    // Sự kiện chọn tất cả
+    selectAllCheckbox.addEventListener("change", function () {
+        productCheckboxes.forEach(cb => cb.checked = this.checked);
+        updateSummary();
+    });
+
+    // Sự kiện tích chọn từng sản phẩm
+    productCheckboxes.forEach(cb => {
+        cb.addEventListener("change", function () {
+            const allChecked = [...productCheckboxes].every(cb => cb.checked);
+            selectAllCheckbox.checked = allChecked;
+            updateSummary();
+        });
+    });
+
+    updateSummary(); // Gọi ban đầu để thiết lập giá trị
+});
+</script>
 
 </body>
 <!-- 

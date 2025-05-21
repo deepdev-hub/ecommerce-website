@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.ecommerce.model.Book;
 import com.example.ecommerce.model.Product;
 import com.example.ecommerce.repository.ProductRepository;
 
@@ -28,7 +29,7 @@ public class AdminAddProductController {
     // Hiển thị form
     @GetMapping("/admin/products/add")
     public String showProductForm(Model model) {
-        model.addAttribute("product", new Product());
+        model.addAttribute("product", new Book());
         return "admin-add-product";
     }
 
@@ -38,7 +39,7 @@ public class AdminAddProductController {
         try {
             if(!imageFile.isEmpty()){
                 String fileName = imageFile.getOriginalFilename();
-                String uploadDir="image/";
+                String uploadDir="uploads/";
                 File uploadPath =   new File(uploadDir);
                 if(!uploadPath.exists()){
                     uploadPath.mkdirs();
@@ -48,11 +49,11 @@ public class AdminAddProductController {
                 product.setImage(fileName);
             }
             productRepository.save(product);
-            return "redirect:/admin/products/add"; // hoặc hiển thị thông báo thành công
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
         }
+        return "redirect:/admin/products/add"; // hoặc hiển thị thông báo thành công
     }
 }
 

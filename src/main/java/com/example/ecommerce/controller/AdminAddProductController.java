@@ -26,14 +26,13 @@ public class AdminAddProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    // Hiển thị form
     @GetMapping("/admin/products/add")
     public String showProductForm(Model model) {
         model.addAttribute("product", new Book());
         return "admin-add-product";
     }
 
-    // Lưu dữ liệu
+
     @PostMapping("/admin/products/add")
     public String saveProduct(@ModelAttribute("product") Product product, @RequestParam("imageFile") MultipartFile imageFile) {
         try {

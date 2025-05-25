@@ -6,26 +6,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
-@Table(name="cart_items")
-
-public class CartItem {
+@Table(name="orderlines")
+public class OrderLine {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long cart_itemsid;
+    Long orderlineid;
+    @JoinColumn(name="orderid")
     @ManyToOne
-    @JoinColumn(name="customerid")
-    Customer customer;
-    @ManyToOne
+    Order order;
+    @OneToOne
     @JoinColumn(name="productid")
-    private Product product;
-    int quantity;
-}
+    Product product;
+    Integer quantity;    
+    
+    }

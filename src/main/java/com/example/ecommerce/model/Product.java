@@ -17,16 +17,16 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long productid;
-    String name ;
-    int quantity;  
-    Double importprice;
-    Double sellprice;
-    String image;
-    Double tax ;
-    String status;
-    String description;
-    Long categoryid;
+    private Long productid;
+    private String name ;
+    private int quantity;  
+    private Double importprice;
+    private Double sellprice;
+    private String image;
+    private Double tax ;
+    private String status;
+    private String description;
+    private Long categoryid;
     public Product(String name, int quantity, Double importprice, Double sellprice, String image, Double tax,
             String status, String description, Long categoryid) {
         this.name = name;

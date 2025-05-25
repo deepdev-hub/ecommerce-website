@@ -1,9 +1,12 @@
 package com.example.ecommerce.model;
 
 
-import jakarta.persistence.*;
+import java.util.Date;
+
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +17,14 @@ import lombok.NoArgsConstructor;
 public class StoreStaff {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long storestaffid;
-    String staffname;
-    String email;
-    String phone;
-    String gender;
-    // String position;
-    // String address;
-    // Date startdate;
-    // int workhour;
-    // Long adminid;
+    private Long storestaffid;
+    private String staffname;
+    private String email;
+    private String phone;
+    private String gender;
+    private String position;
+    private String address;
+    private Date startdate;
+    private int workhour;
 
 }

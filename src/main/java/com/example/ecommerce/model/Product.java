@@ -15,7 +15,7 @@ import jakarta.persistence.InheritanceType;
 public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "product_id")
+    @Column(name = "productid")
     Long id;
     
     String name ;
@@ -24,27 +24,44 @@ public class Product {
     Integer quantity;
     String status;
     String description;
-    Double importPrice;
-    Double sellPrice;
+    Double importprice;
+    Double sellprice;
     //Long categoryid;
     
     public Product() {}
+
+    public String toString() {
+        return (id + ", " + name + ", " + sellprice + ", " + quantity);
+    }
     
-    public Double getImportPrice() {
-        return importPrice;
+    // In your Product.java class
+    public String getProductType() {
+        return this.getClass().getSimpleName();
     }
 
-    public void setImportPrice(Double importPrice) {
-        this.importPrice = importPrice;
+    public Double getImportprice() {
+        return importprice;
     }
 
-    public Double getSellPrice() {
-        return sellPrice;
+
+
+    public void setImportprice(Double importprice) {
+        this.importprice = importprice;
     }
 
-    public void setSellPrice(Double sellPrice) {
-        this.sellPrice = sellPrice;
+
+
+    public Double getSellprice() {
+        return sellprice;
     }
+
+
+
+    public void setSellprice(Double sellprice) {
+        this.sellprice = sellprice;
+    }
+
+
 
     public Long getId() {
         return id;

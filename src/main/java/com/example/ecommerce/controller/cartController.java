@@ -1,22 +1,21 @@
-// package com.example.ecommerce.controller;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Controller;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
+package com.example.ecommerce.controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-// import com.example.ecommerce.repository.CustomerRepository;
+import com.example.ecommerce.service.CartService;
 
-// @Controller
-// @RequestMapping("/cart")
-// public class cartController {
 
-//     @Autowired
-//     private CustomerRepository customerRepository;
+@Controller
+public class CartController {
 
-//     @GetMapping
-//     public String viewCart() {
-    
-//         return "cart";  
-//     }
-// }
+    @Autowired
+    private CartService cartService;
+
+    @GetMapping("/{id}/cart")
+    public String viewCart() {
+        return "cart";  
+    }
+}
 

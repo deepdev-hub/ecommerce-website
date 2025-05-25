@@ -40,7 +40,7 @@
 
 </body>
 </html> -->
-<form action="/admin/products/save" method="post">
+<form th:action="@{/admin/products/add}" th:objec = "${product}" method="post">
   <label for="category">Category:</label>
   <select id="category" name="category" required>
     <option value="">--Chọn loại sản phẩm--</option>
@@ -52,50 +52,55 @@
   <!-- Trường chung -->
   <div>
     <label for="name">Tên sản phẩm:</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" th:fields="*{name}" required>
   </div>
 
   <div>
     <label for="description">Mô tả:</label>
-    <textarea id="description" name="description"></textarea>
+    <textarea id="description" name="description" th:fields="*{description}"></textarea>
+  </div>
+
+  <div>
+    <label for="price">Giá nhập:</label>
+    <input type="number" id="importprice" name="importprice" step="0.01" th:fields="*{importprice}" required>
   </div>
 
   <div>
     <label for="price">Giá bán:</label>
-    <input type="number" id="price" name="price" step="0.01" required>
+    <input type="number" id="sellprice" name="sellprice" step="0.01" th:fields="*{sellprice}" required>
   </div>
 
   <!-- Book -->
   <div id="bookFields" style="display:none; margin-top:10px;">
     <h4>Thông tin sách</h4>
-    <label for="isbn">ISBN <small>(bắt buộc)</small>:</label>
-    <input type="text" id="isbn" name="isbn">
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" th:fields="*{isbn}">
 
-    <label for="author">Tác giả <small>(bắt buộc)</small>:</label>
-    <input type="text" id="author" name="author">
+    <label for="author">Tác giả:</label>
+    <input type="text" id="author" name="author" th:fields="*{author}">
 
-    <label for="publisher">Nhà xuất bản <small>(bắt buộc)</small>:</label>
-    <input type="text" id="publisher" name="publisher">
+    <label for="publisher">Nhà xuất bản:</label>
+    <input type="text" id="publisher" name="publisher" th:fields="*{publisher}">
   </div>
 
   <!-- Stationary -->
   <div id="stationaryFields" style="display:none; margin-top:10px;">
     <h4>Thông tin văn phòng phẩm</h4>
-    <label for="brandStationary">Thương hiệu <small>(bắt buộc)</small>:</label>
+    <label for="brandStationary">Thương hiệu:</label>
     <input type="text" id="brandStationary" name="brand">
 
-    <label for="typeStationary">Loại <small>(bắt buộc)</small>:</label>
-    <input type="text" id="typeStationary" name="type">
+    <label for="typeStationary">Loại:</label>
+    <input type="text" id="typeStationary" name="type" th:fields="*{type}">
   </div>
 
   <!-- Toy -->
   <div id="toyFields" style="display:none; margin-top:10px;">
     <h4>Thông tin đồ chơi</h4>
     <label for="brandToy">Thương hiệu <small>(bắt buộc)</small>:</label>
-    <input type="text" id="brandToy" name="brand">
+    <input type="text" id="brandToy" name="brand" th:fields="*{brand}">
 
-    <label for="suitableAge">Độ tuổi phù hợp <small>(bắt buộc)</small>:</label>
-    <input type="text" id="suitableAge" name="suitableage">
+    <label for="suitableage">Độ tuổi phù hợp <small>(bắt buộc)</small>:</label>
+    <input type="text" id="suitableAge" name="suitableage" th:fields="*{suitableage}">
   </div>
 
   <button type="submit">Lưu sản phẩm</button>

@@ -1,8 +1,14 @@
 package com.example.ecommerce.model;
 
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
+
 public class Orderlines {
     Long productid;
+
+    @ManyToOne
     Long orderid;
+    
     Long orderlineid;
     int quantity;    
     

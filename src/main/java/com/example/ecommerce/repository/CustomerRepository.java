@@ -1,12 +1,13 @@
-// package com.example.ecommerce.repository;
+package com.example.ecommerce.repository;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-// import com.example.ecommerce.model.Customer;
+import com.example.ecommerce.model.Customer;
 
 
-// @Repository
-// public interface CustomerRepository extends JpaRepository<Customer, Long> {
-//     Customer finByUsername(username);
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+    // Customer findByUsername(customer);
 
-// }
+}

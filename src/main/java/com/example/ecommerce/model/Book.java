@@ -3,7 +3,7 @@ package com.example.ecommerce.model;
 import jakarta.persistence.*;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "product_id")
+@PrimaryKeyJoinColumn(name = "productid")
 public class Book extends Product {
     
     String isbn;
@@ -12,7 +12,6 @@ public class Book extends Product {
     
     public Book() {super();}
 
-    
 
 
     public Book(Long id, String name, int quantity, Double importprice, Double sellprice, String image, Double tax,

@@ -1,11 +1,17 @@
 package com.example.ecommerce.model;
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-// @Entity
+@Entity
 // @Table(name="order")
 public class Orders {
 
@@ -16,7 +22,12 @@ public class Orders {
     double totalamount;
     Long storestaffid;
     Long customerid;
+    String status;
 
+    @OneToMany(
+        mappedBy = "order"
+    )
+    List<Orderlines> orderedItems = new ArrayList<>();
     
 
     public Long getOrderid() {
@@ -86,6 +97,22 @@ public class Orders {
         this.totalamount = totalamount;
         this.storestaffid = storestaffid;
         this.customerid = customerid;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Orderlines> getOrderedItems() {
+        return orderedItems;
+    }
+
+    public void setOrderedItems(List<Orderlines> orderedItems) {
+        this.orderedItems = orderedItems;
     }
 
     

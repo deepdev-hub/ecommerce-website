@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Place order</title>
+    <meta name="viewport" content="ice-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Customer place order page</h2>
+    
+    <form th:action="@{/order/place}" method="post">
+        <button type="submit">Order</button>
+    </form>
+
+    </div>
+    <div th:insert = "fragments/footer :: footer"></div>
+</body>
+</html>

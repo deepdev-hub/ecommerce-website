@@ -10,8 +10,6 @@ import com.example.ecommerce.model.CartItem;
 import com.example.ecommerce.model.Customer;
 import com.example.ecommerce.model.Order;
 import com.example.ecommerce.model.OrderLine;
-import com.example.ecommerce.model.Product;
-import com.example.ecommerce.model.StoreStaff;
 import com.example.ecommerce.repository.OrderRepository;
 
 import jakarta.transaction.Transactional;
@@ -22,11 +20,10 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
     @Transactional
-    public Order placeOrder(List<CartItem> cart, Customer customer, StoreStaff storeStaff) {
+    public Order placeOrder(List<CartItem> cart, Customer customer) {
         Order order = new Order();
         order.setOrderdate(LocalDateTime.now());
         order.setCustomer(customer);
-        order.setStoreStaff(storeStaff);
         order.setStatus("Processing");
 
         double netAmount = 0;
@@ -45,4 +42,6 @@ public class OrderService {
         order.setTotalamount(netAmount + tax);
         return orderRepository.save(order); // sẽ lưu luôn cả order_lines
     }
+    @Transactional
+    public 
 }

@@ -40,4 +40,10 @@ public class CartService {
         }).toList();
         return cartItemDTOs;
     }
+    @Transactional
+    public List<CartItem> getcartItemByCustomerid(Long customerid){
+        Customer customer = customerRepository.findByCustomerid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
+        List<CartItem> cart = customer.getCart();
+        return cart;
+    }
 }

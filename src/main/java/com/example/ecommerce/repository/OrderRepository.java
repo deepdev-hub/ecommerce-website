@@ -9,4 +9,5 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface OrderRepository extends JpaRepository<Order, Long> {
     
+    
 }

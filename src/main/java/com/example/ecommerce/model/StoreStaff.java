@@ -1,12 +1,11 @@
 package com.example.ecommerce.model;
-
-
 import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="storestaff")
 public class StoreStaff {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -26,5 +26,5 @@ public class StoreStaff {
     private String address;
     private Date startdate;
     private int workhour;
-
+    private double hesoluong;
 }

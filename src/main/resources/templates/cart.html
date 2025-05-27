@@ -107,22 +107,5 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </body>
-<!-- 
-<script>
-    // Khi checkbox "Chọn tất cả" thay đổi
-    document.getElementById("selectAll").addEventListener("change", function () {
-      const checkboxes = document.querySelectorAll(".item-checkbox");
-      checkboxes.forEach(cb => cb.checked = this.checked);
-    });
-  
-    // Nếu bỏ chọn 1 checkbox con → tự động bỏ chọn "chọn tất cả"
-    document.querySelectorAll(".item-checkbox").forEach(cb => {
-      cb.addEventListener("change", function () {
-        const all = document.querySelectorAll(".item-checkbox");
-        const allChecked = Array.from(all).every(cb => cb.checked);
-        document.getElementById("selectAll").checked = allChecked;
-      });
-    });
-  </script>
-   -->
+
 </html>

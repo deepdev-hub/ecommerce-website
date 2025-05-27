@@ -33,11 +33,13 @@ public class Order {
     @ManyToOne
     @JoinColumn(name="storestaffid")
     private StoreStaff storeStaff;
+
     @ManyToOne
     @JoinColumn(name="customerid")
     private Customer customer;
     private String status;
 
+    // @JoinColumn(name="orderid")
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderLine> orderLines = new ArrayList<>();
 

@@ -13,50 +13,54 @@
 <div class="cart-container">
 
     <h2>Giỏ Hàng Của Bạn</h2>
-
-    <table class="cart-table">
-        <thead>
-            <tr>
-                <th>Sản Phẩm</th>
-                <th>Đơn Giá</th>
-                <th>Số Lượng</th>
-                <th>Số Tiền</th>
-                <th>Thao Tác</th>
-            </tr>
-        </thead>
-
+    <form th:action="@{/cart}" method="post">
         
-        <tbody>
-            <tr th:each="item : ${cartitems}">
-                
-                <td><input type="checkbox" class="product-checkbox" th:attr="data-quantity=${item.quantity}, data-price=${item.sellprice * item.quantity}"></td>
-                <td class="product-info">
-                    <img th:src="@{'/image/' + ${item.image}}" alt="Image">
-                    <div>
-                        <p th:text="${item.name}">Tên Sách</p>
-                        <!-- <small th:text="${item.author}">Tên Nhà Sách</small> -->
-                    </div>
-                </td>
-                <td th:text="${#numbers.formatDecimal(item.sellprice, 0, 'COMMA', 0, 'POINT')} + '₫'">Đơn Giá</td>
-                <td>
-                    <input type="number" th:value="${item.quantity}" >
-                </td> 
-                <td th:text="${#numbers.formatDecimal(item.sellprice*item.quantity, 0, 'COMMA', 0, 'POINT')} + '₫'">Đơn Giá</td>
-                <td><button class="delete-btn">Xóa</button></td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>checkbox</th>
+                    <th>Sản Phẩm</th>
+                    <th>Đơn Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Số Tiền</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item, iterStat : ${cartitems}">
+                    
+                    <td>
+                        <input type="checkbox" class="product-checkbox" name ="cartselected" th:value ="${item.productid}" th:attr="data-quantity=${item.quantity}, data-price=${item.sellprice * item.quantity}">
+                        <!-- <input type="hidden"  name ="cartselected[_${iterStart.index}_].quantity" th:value ="item.quantity"> -->
+                    </td>
+                    <td class="product-info">
+                        <img th:src="@{'/image/' + ${item.image}}" alt="Image">
+                        <div>
+                            <p th:text="${item.name}">Tên Sách</p>
+                            <!-- <small th:text="${item.author}">Tên Nhà Sách</small> -->
+                        </div>
+                    </td>
+                    <td th:text="${#numbers.formatDecimal(item.sellprice, 0, 'COMMA', 0, 'POINT')} + '₫'">Đơn Giá</td>
+                    <td>
+                        <input type="number" th:value="${item.quantity}" >
+                    </td> 
+                    <td th:text="${#numbers.formatDecimal(item.sellprice*item.quantity, 0, 'COMMA', 0, 'POINT')} + '₫'">Đơn Giá</td>
+                    <td><button class="delete-btn">Xóa</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <div class="left">
+                <th><input type="checkbox" id="selectAll">Chon tat ca</th>
+                <button class="delete-all-btn">Xóa</button>
+            </div>
+            <div class="right">
+                <span>Tổng cộng (0 sản phẩm): <strong>0₫</strong></span>
+                <button class="checkout-btn">Mua Hàng</button>
+            </div>
+        </div>
+    </form>
 
-    <div class="cart-summary">
-        <div class="left">
-            <th><input type="checkbox" id="selectAll">Chon tat ca</th>
-            <button class="delete-all-btn">Xóa</button>
-        </div>
-        <div class="right">
-            <span>Tổng cộng (0 sản phẩm): <strong>0₫</strong></span>
-            <button class="checkout-btn">Mua Hàng</button>
-        </div>
-    </div>
 
 </div>
 <script>
@@ -105,7 +109,5 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSummary(); // Gọi ban đầu để thiết lập giá trị
 });
 </script>
-
 </body>
-
 </html>

@@ -1,10 +1,13 @@
-// package com.example.ecommerce.repository;
+package com.example.ecommerce.repository;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-// import com.example.ecommerce.database.CartItemId;
-// import com.example.ecommerce.entity.CartItem;
+import com.example.ecommerce.model.CartItem;
+import com.example.ecommerce.model.Product;
 
-// public interface CartItemRepository extends JpaRepository<CartItem, CartItemId> {
+@Repository
+public interface CartItemRepository extends JpaRepository<CartItem, Long> {
+    CartItem findByProduct(Product product);
     
-// }
+}

@@ -14,6 +14,7 @@ import com.example.ecommerce.repository.CustomerRepository;
 import com.example.ecommerce.repository.ProductRepository;
 
 @Service
+@Transactional
 public class CartService {
     @Autowired
     private CartRepository cartRepository;
@@ -28,13 +29,13 @@ public class CartService {
         for (CartItem elem : cart) {
             System.out.println(elem.getCart_itemsid());
         }
-        List<CartItemDTO> cartItemDTOs = cart.stream().map(product -> {
+        List<CartItemDTO> cartItemDTOs = cart.stream().map(cartItem -> {
             CartItemDTO cartItemDTO = new CartItemDTO();
-
-            cartItemDTO.setName(product.getProduct().getName());
-            cartItemDTO.setImage(product.getProduct().getImage());
-            cartItemDTO.setSellprice(product.getProduct().getSellprice());
-            cartItemDTO.setQuantity(product.getQuantity());
+            cartItemDTO.setProductid(cartItem.getProduct().getProductid());
+            cartItemDTO.setName(cartItem.getProduct().getName());
+            cartItemDTO.setImage(cartItem.getProduct().getImage());
+            cartItemDTO.setSellprice(cartItem.getProduct().getSellprice());
+            cartItemDTO.setQuantity(cartItem.getQuantity());
             
             return cartItemDTO;
         }).toList();
@@ -46,4 +47,7 @@ public class CartService {
         List<CartItem> cart = customer.getCart();
         return cart;
     }
+    // public CartItem getCartItemByProductid(Long productid){
+    //     return cartRepository.fin
+    // }
 }

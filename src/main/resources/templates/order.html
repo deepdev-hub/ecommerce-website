@@ -10,6 +10,41 @@
     <h2>Customer place order page</h2>
     
     <form th:action="@{/order/place}" method="post">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>checkbox</th>
+                    <th>Sản Phẩm</th>
+                    <th>Đơn Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Số Tiền</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item, iterStat : ${selecteditems}">
+                    
+                    <td>
+                        <input type="checkbox" class="product-checkbox" name ="cartselected" th:value ="${item.productid}" th:attr="data-quantity=${item.quantity}, data-price=${item.sellprice * item.quantity}">
+                        <!-- <input type="hidden"  name ="cartselected[_${iterStart.index}_].quantity" th:value ="item.quantity"> -->
+                    </td>
+                    <td class="product-info">
+                        <img th:src="@{'/image/' + ${item.image}}" alt="Image">
+                        <div>
+                            <p th:text="${item.name}">Tên Sách</p>
+                            <!-- <small th:text="${item.author}">Tên Nhà Sách</small> -->
+                        </div>
+                    </td>
+                    <td th:text="${#numbers.formatDecimal(item.sellprice, 0, 'COMMA', 0, 'POINT')} + '₫'">Đơn Giá</td>
+                    <td>
+                        <input type="number" th:value="${item.quantity}" >
+                    </td> 
+                    <td th:text="${#numbers.formatDecimal(item.sellprice*item.quantity, 0, 'COMMA', 0, 'POINT')} + '₫'">Đơn Giá</td>
+                    <td><button class="delete-btn">Xóa</button></td>
+                </tr>
+            </tbody>
+        </table>
+
         <button type="submit">Order</button>
     </form>
 

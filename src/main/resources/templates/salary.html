@@ -1,0 +1,16 @@
+<!-- templates/employee-salary.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lương cá nhân</title>
+</head>
+<body>
+    <h1>Thông tin lương của bạn</h1>
+
+    <p><strong>Họ tên:</strong> <span th:text="${staff.storestaffname}"></span></p>
+    <p><strong>Chức vụ:</strong> <span th:text="${staff.position}"></span></p>
+    <!-- <p><strong>Lương cơ bản:</strong> <span th:text="${employee.baseSalary}"></span> VNĐ</p>
+    <p><strong>Thưởng:</strong> <span th:text="${employee.bonus}"></span> VNĐ</p> -->
+    <p><strong>Tổng lương:</strong> <span th:text="${employee.totalSalary}"></span> VNĐ</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="'Stationary: ' + ${stationary.name}">Stationary Detail</title>
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <h1 th:text="${stationary.name}">Stationary Name</h1>
+  <img th:src="@{/images/{img}(img=${stationary.image})}" th:alt="${stationary.name}" />
+  <p th:text="${stationary.description}"></p>
+  <ul>
+    <li>Brand: <span th:text="${stationary.brand}"></span></li>
+    <li>Type: <span th:text="${stationary.type}"></span></li>
+    <li>Price: <span th:text="${stationary.sellprice}"></span></li>
+    <li>Status: <span th:text="${stationary.status}"></span></li>
+  </ul>
+  <a href="/stationary">Back to list</a>
+</body>
+</html>

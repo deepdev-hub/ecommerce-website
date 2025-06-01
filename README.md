@@ -39,7 +39,7 @@
 
 ```bash
 # 1. Clone project
-git clone https://github.com/your-username/hust-book-store.git
+git clone https://github.com/deepdev-hub/ecommerce-website.git
 cd hust-book-store
 
 # 2. Cài đặt dependencies

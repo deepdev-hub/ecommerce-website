@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.ecommerce.DTO.CartItemDTO;
-import com.example.ecommerce.model.CartItem;
 import com.example.ecommerce.model.Customer;
 import com.example.ecommerce.model.Order;
 import com.example.ecommerce.model.OrderLine;
@@ -32,7 +31,6 @@ public class OrderService {
             System.out.println(cartItem.getProductid());
             System.out.println(cartItem.getProductid());
             //xu ly tru san pham trong cart
-
         }
         Order order = new Order();
         order.setOrderdate(LocalDateTime.now());
@@ -50,11 +48,21 @@ public class OrderService {
         }
 
         order.setNetamount(netAmount);
-        double tax = netAmount * 0.1; // ví dụ 10% VAT
+        double tax = netAmount * 0.1; 
         // xu ly thue lay tu product
         order.setTaxvat(tax);
         order.setTotalamount(netAmount + tax);
-        return orderRepository.save(order); // sẽ lưu luôn cả order_lines
+        return orderRepository.save(order); 
+    }
+        public List<Order> getProcessingOrders() {
+        return orderRepository.findByStatus("Processing");
+    }
+
+    public void updateOrderStatus(Long orderId, String newStatus) {
+        Order order = orderRepository.findById(orderId)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid order ID: " + orderId));
+        order.setStatus(newStatus);
+        orderRepository.save(order);
     }
     // @Transactional
     // public 

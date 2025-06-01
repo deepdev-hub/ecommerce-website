@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quản lý đơn hàng chờ xử lý</title>
+</head>
+<body>
+<h2>Đơn hàng đang chờ xử lý</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Ngày đặt</th>
+        <th>Tổng tiền</th>
+        <th>VAT</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.orderid}"></td>
+        <span th:text="${@myDateUtils.format(order.orderdate, 'yyyy-MM-dd HH:mm')}"></span>
+        <td th:text="${order.totalamount}"></td>
+        <td th:text="${order.taxvat}"></td>
+        <td>
+            <form th:action="@{'/admin/orders/accept/' + ${order.orderid}}" method="post" style="display:inline;">
+                <button type="submit">Accept</button>
+            </form>
+            <form th:action="@{'/admin/orders/deny/' + ${order.orderid}}" method="post" style="display:inline;">
+                <button type="submit">Deny</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

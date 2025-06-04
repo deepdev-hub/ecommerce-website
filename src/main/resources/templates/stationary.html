@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stationary</title>
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <form th:action="@{/stationary}" method="get">
+    <input type="text" name="keyword" placeholder="Search stationariestationaries..." />
+    <button type="submit">Search</button>
+  </form>
+
+  <h1>Stationary</h1>
+  <div class="grid" id="stationaryGrid">
+    <div class="card" th:each="stationary : ${stationaries}">
+      <img th:src="@{/images/{img}(img=${stationary.image})}" th:alt="${stationary.name}" />
+      <a th:href="@{/stationary-detail(id=${stationary.productid})}" th:text="${stationary.name}"></a>
+    </div>
+  </div>
+
+</body>
+</html>

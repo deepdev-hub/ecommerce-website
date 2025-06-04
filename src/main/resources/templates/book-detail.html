@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="'Book: ' + ${book.name}">Book Detail</title>
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <h1 th:text="${book.name}">Book Name</h1>
+  <img th:src="@{/images/{img}(img=${book.image})}" th:alt="${book.name}" />
+  <p th:text="${book.description}"></p>
+  <ul>
+    <li>Author: <span th:text="${book.author}"></span></li>
+    <li>Publisher: <span th:text="${book.publisher}"></span></li>
+    <li>Price: <span th:text="${book.sellprice}"></span></li>
+    <li>Status: <span th:text="${book.status}"></span></li>
+  </ul>
+  <a href="/book">Back to list</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="'Toy: ' + ${toy.name}">Toy Detail</title>
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <h1 th:text="${toy.name}">Toy Name</h1>
+  <img th:src="@{/images/{img}(img=${toy.image})}" th:alt="${toy.name}" />
+  <p th:text="${toy.description}"></p>
+  <ul>
+    <li>Brand: <span th:text="${toy.brand}"></span></li>
+    <li>Suitable Age: <span th:text="${toy.suitableage}"></span></li>
+    <li>Price: <span th:text="${toy.sellprice}"></span></li>
+    <li>Status: <span th:text="${toy.status}"></span></li>
+  </ul>
+  <a href="/toy">Back to list</a>
+</body>
+</html>

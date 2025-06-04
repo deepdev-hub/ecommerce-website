@@ -1,37 +1,18 @@
-// package com.example.ecommerce.model;
-// public class Toy extends  Product{
-//     String brand;
-//     String suitableage;
+package com.example.ecommerce.model;
 
-//     public void displayImformation (){
-//         System.out.println("title: "+this.name);
-//         //System.out.println("category: "+this.category);
-//         System.out.println("suitable age: "+this.suitableage);
-//         //System.out.printf("cost: %.2f\n", this.cost);
-//     }
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-//     public String getBrand() {
-//         return brand;
-//     }
-
-
-
-//     public void setBrand(String brand) {
-//         this.brand = brand;
-//     }
-
-
-
-//     public String getSuitableage() {
-//         return suitableage;
-//     }
-
-
-
-//     public void setSuitableage(String suitableage) {
-//         this.suitableage = suitableage;
-//     }
-    
-// }
-
-
+@Entity
+@Data
+@EqualsAndHashCode(callSuper=false)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Toy extends Product {    
+    String isbn;
+    String author;
+    String publisher;
+}

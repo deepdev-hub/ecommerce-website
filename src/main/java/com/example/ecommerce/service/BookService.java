@@ -18,4 +18,7 @@ public class BookService {
     public Book getBookById(Long id){
         return bookRepository.findById(id).orElse(null);
     }
+    public List<Book> searchBooksByName(String keyword) {
+        return bookRepository.findByNameContainingIgnoreCase(keyword);
+    }   
 }

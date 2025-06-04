@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Books</title>
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <h1>Books</h1>
+
+  <form method="get" action="/book">
+    <input type="text" name="keyword" placeholder="Search..."
+           th:value="${param.keyword}" />
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="grid" id="bookGrid">
+    <div class="card" th:each="book : ${books}">
+      <img th:src="@{/images/{img}(img=${book.image})}" th:alt="${book.name}" />
+      <a th:href="@{/book-detail(id=${book.productid})}" th:text="${book.name}"></a>
+    </div>
+  </div>
+
+  <a href="/">Back to Home</a>
+</body>
+</html>

@@ -12,7 +12,7 @@ import com.example.ecommerce.service.ProductService;
 
 
 @RestController
-public class productController {
+public class ProductController {
     @Autowired
     private ProductService productService;
     @GetMapping("/products")

@@ -35,6 +35,7 @@ public class CartController {
         model.addAttribute("cartitems", cartItemDTOs );
         return "cart";
     }
+    
     @PostMapping("/cart")
     public String doOrder(@RequestParam(name="cartselected") List<Long> cartselected, HttpSession session, Model model) {
         Customer customer = (Customer)session.getAttribute("currentcustomer");

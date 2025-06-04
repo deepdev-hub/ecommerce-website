@@ -36,7 +36,6 @@ public class CartService {
             cartItemDTO.setImage(cartItem.getProduct().getImage());
             cartItemDTO.setSellprice(cartItem.getProduct().getSellprice());
             cartItemDTO.setQuantity(cartItem.getQuantity());
-            
             return cartItemDTO;
         }).toList();
         return cartItemDTOs;

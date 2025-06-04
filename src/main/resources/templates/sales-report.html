@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Báo cáo doanh số theo tháng</title>
+</head>
+<body>
+<h2>Báo cáo doanh số theo tháng</h2>
+<table border="1">
+    <tr>
+        <th>Tháng</th>
+        <th>Số đơn hàng</th>
+        <th>Doanh thu</th>
+        <th>VAT</th>
+        <th>Số lượng sản phẩm</th>
+    </tr>
+    <tr th:each="sale : ${salesList}">
+        <td th:text="${sale.month}"></td>
+        <td th:text="${sale.totalOrders}"></td>
+        <td th:text="${sale.totalRevenue}"></td>
+        <td th:text="${sale.totalTax}"></td>
+        <td th:text="${sale.totalProductsSold}"></td>
+    </tr>
+</table>
+</body>
+</html>

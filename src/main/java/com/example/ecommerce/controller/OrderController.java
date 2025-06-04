@@ -25,7 +25,6 @@ public class OrderController {
     @Autowired
     private CartService cartService;
 
-    
     @GetMapping("/order/place")
     public String showOrderForm(Model model, HttpSession session) {
         Customer customer = (Customer)session.getAttribute("currentcustomer");

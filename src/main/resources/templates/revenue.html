@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Revenue Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .revenue-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            background-color: #f9f9f9;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 400px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Revenue Report</h1>
+    <div class="revenue-box">
+        <p><strong>Total Revenue:</strong> <span th:text="${#numbers.formatDecimal(totalRevenue, 1, 'COMMA', 0, 'POINT')} + ' đồng'"></span></p>
+        <p><strong>Total Orders:</strong> <span th:text="${totalOrders}"></span></p>
+        <p><strong>Top Product:</strong> <span th:text="${topProduct}"></span></p>
+    </div>
+
+    <h2>Monthly Revenue</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="i : ${#numbers.sequence(1,12)}">
+                <td th:text="${(i < 10 ? '0' : '') + i + '-2025'}"></td>
+                <td th:text="${#numbers.formatDecimal(monthlyRevenue[(i < 10 ? '0' : '') + i + '-2025'] != null ? monthlyRevenue[(i < 10 ? '0' : '') + i + '-2025'] : 0, 1, 'COMMA', 0, 'POINT')} + ' đồng'"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

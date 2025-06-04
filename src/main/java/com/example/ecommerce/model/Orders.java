@@ -1,19 +1,47 @@
 package com.example.ecommerce.model;
 
-
 import java.util.Date;
-// @Entity
-// @Table(name="order")
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "orders") // nếu tên bảng trong DB là "orders"
 public class Orders {
 
-    Long orderid;
-    Date orderdate;
-    double taxvat;
-    double netamount;
-    double totalamount;
-    Long storestaffid;
-    Long customerid;
+    @Id
+    private Long orderid;
 
+    private Date orderdate;
+    private double taxvat;
+    private double netamount;
+    private double totalamount;
+    private Long storestaffid;
+    private Long customerid;
+
+    public Orders() {
+        // JPA yêu cầu constructor mặc định
+    }
+
+    public Orders(Long orderid, Date orderdate, double taxvat, double netamount, double totalamount,
+                  Long storestaffid, Long customerid) {
+        this.orderid = orderid;
+        this.orderdate = orderdate;
+        this.taxvat = taxvat;
+        this.netamount = netamount;
+        this.totalamount = totalamount;
+        this.storestaffid = storestaffid;
+        this.customerid = customerid;
+    }
+
+    public Long getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(Long orderid) {
+        this.orderid = orderid;
+    }
 
     public Date getOrderdate() {
         return orderdate;
@@ -43,16 +71,8 @@ public class Orders {
         return totalamount;
     }
 
-    public void setTotalamount(double totalAmount) {
-        this.totalamount = totalAmount;
-    }
-
-    public Long getOrderid() {
-        return orderid;
-    }
-
-    public void setOrderid(Long orderid) {
-        this.orderid = orderid;
+    public void setTotalamount(double totalamount) {
+        this.totalamount = totalamount;
     }
 
     public Long getStorestaffid() {
@@ -70,16 +90,4 @@ public class Orders {
     public void setCustomerid(Long customerid) {
         this.customerid = customerid;
     }
-
-    public Orders(Long orderid, Date orderdate, double taxvat, double netamount, double totalamount, Long storestaffid,
-            Long customerid) {
-        this.orderid = orderid;
-        this.orderdate = orderdate;
-        this.taxvat = taxvat;
-        this.netamount = netamount;
-        this.totalamount = totalamount;
-        this.storestaffid = storestaffid;
-        this.customerid = customerid;
-    }
-    
 }

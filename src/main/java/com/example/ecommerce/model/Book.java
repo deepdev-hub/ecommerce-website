@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book extends Product {    
-    String isbn;
-    String author;
-    String publisher;
+    private String isbn;
+    private String author;
+    private String publisher;
 }

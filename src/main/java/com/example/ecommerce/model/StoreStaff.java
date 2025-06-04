@@ -27,4 +27,5 @@ public class StoreStaff {
     private Date startdate;
     private int workhour;
     private double hesoluong;
+    
 }

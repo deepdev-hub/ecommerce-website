@@ -1,0 +1,31 @@
+<!-- templates/admin-salary-summary.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bảng tổng hợp lương</title>
+</head>
+<body>
+    <h1>Bảng tổng hợp lương nhân viên</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Họ tên</th>
+                <th>Chức vụ</th>
+                <th>Lương cơ bản (VNĐ)</th>
+                <th>Thưởng (VNĐ)</th>
+                <th>Tổng lương (VNĐ)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="staff: ${staffs}">
+                <td th:text="${staff.staffname}"></td>
+                <td th:text="${staff.position}"></td>
+                <!-- <td th:text="${employee.baseSalary}"></td>
+                <td th:text="${employee.bonus}"></td> -->
+                <td th:text="${staff.salary}"></td> 
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

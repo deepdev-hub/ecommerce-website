@@ -13,7 +13,6 @@ import com.example.ecommerce.service.OrderService;
 @Controller
 @RequestMapping("/admin/orders")
 public class AdminOrderController {
-
     @Autowired
     private OrderService orderService;
 

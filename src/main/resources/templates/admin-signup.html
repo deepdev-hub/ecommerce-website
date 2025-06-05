@@ -32,15 +32,14 @@
 
             <form class="form-group" th:action="@{/admin/signup}" th:object = "${admin}" method="post">
             <div>
-                <label for="adminusername">Adminusername</label>
-                <input type="text" id="adminusername" th:field = "*{adminusername}" placeholder="Nhập vao adminusername">
-            <div th:if = "${#fields.hasErrors('adminusername')}" th:errors = "*{adminusername}"></div>
+                <label for="storestaffusername">Adminusername</label>
+                <input type="text" id="storestaffusername" th:field = "*{storestaffusername}" placeholder="Nhập vao Adminusername">
+            <div th:if = "${#fields.hasErrors('storestaffusername')}" th:errors = "*{storestaffusername}"></div>
             </div>
             <div>
-                <label for="adminpassword">adminpassword</label>
+                <label for="storestaffpassword">Adminpassword</label>
                 <div class="password-field">
-
-                    <input type="password" id="adminpassword" th:field = "*{adminpassword}" placeholder="Nhập mat khau">
+                    <input type="password" id="storestaffpassword" th:field = "*{storestaffpassword}" placeholder="Nhập mat khau">
                     <span class="show-password">Hien</span>
                 </div>
             </div>

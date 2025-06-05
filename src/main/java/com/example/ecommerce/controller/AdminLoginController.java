@@ -20,7 +20,6 @@ public class AdminLoginController {
     private AdminService adminService;
     @GetMapping("/admin/login")
     public String showLoginForm(Model model) {
-        
         model.addAttribute("admin", new Admin() );
         return "admin-login";
     }

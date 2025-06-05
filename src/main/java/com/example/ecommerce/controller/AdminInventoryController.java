@@ -21,5 +21,4 @@ public class AdminInventoryController {
         model.addAttribute("products", allProducts);
         return "admin-inventory";
     }
-    
 }

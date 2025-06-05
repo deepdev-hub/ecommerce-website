@@ -30,11 +30,11 @@ public class AdminSignupController {
             result.rejectValue("adminusername", "error.admin", "username already exist");
         }
         if(result.hasErrors()){
-            return "admin-signup";
+            return "redirect:/admin/signup";
         }
         adminService.saveAdmin(admin);
         model.addAttribute("message", "signup successful");
-        return "redirect:admin/login";
+        return "redirect:/admin/login";
     }
 
 }

@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <th>Họ tên</th>
-                <th>Chức vụ</th>
+                <!-- <th>Chức vụ</th> -->
                 <th>Lương cơ bản (VNĐ)</th>
                 <th>Thưởng (VNĐ)</th>
                 <th>Tổng lương (VNĐ)</th>
@@ -19,13 +19,26 @@
         </thead>
         <tbody>
             <tr th:each="staff: ${staffs}">
-                <td th:text="${staff.staffname}"></td>
-                <td th:text="${staff.position}"></td>
+                <td th:text="${staff.name}"></td>
+                <td th:text="${staff.workhour}" ></td>
+                <!-- <td th:text=th:text = "${staff.hesoluong}" ></td> -->
                 <!-- <td th:text="${employee.baseSalary}"></td>
                 <td th:text="${employee.bonus}"></td> -->
-                <td th:text="${staff.salary}"></td> 
+                <!-- <td th:text="${staff.salary}"></td>  -->
             </tr>
         </tbody>
     </table>
+    <!-- <table border="1">
+        <tr><th>Họ tên</th><td th:text="${staff.name}">Tên</td></tr>
+        <tr><th>Chức vụ</th><td th:text="${staff.position}">Chức vụ</td></tr>
+        <tr><th>Giờ làm</th><td th:text="${staff.workhour}">0</td></tr>
+        <tr><th>Hệ số lương</th><td th:text="${staff.hesoluong}">0.0</td></tr>
+        <tr><th>Luong co ban</th><td>
+
+            <span th:text="${T(com.example.ecommerce.model.StoreStaff).getLuongcoban()}">0</span>
+        </td></tr>
+        <tr><th>Lương tối đa</th><td th:text="${T(com.example.ecommerce.model.StoreStaff).luongmax}">0</td></tr>
+        <tr><th>Lương thực nhận</th><td th:text="${calculatedSalary}">0</td></tr>
+    </table> -->
 </body>
 </html>

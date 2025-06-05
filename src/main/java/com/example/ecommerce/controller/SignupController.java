@@ -26,7 +26,7 @@ public class SignupController {
             customerService.saveCustomer(customerForm);
             model.addAttribute("message", "success signup ");
             return "redirect:/login";
-            } 
+            }
         model.addAttribute("message", "signup failed!");
         return "redirect:/signup";
     }

@@ -2,6 +2,6 @@ package com.example.ecommerce.model;
 
 public interface HaveSalary {
     public double calculateSalary();
-    public void increaseSalary();
-    public void decreaseSalary();
+    public boolean   increaseSalary(double step);
+    public boolean   decreaseSalary(double step);
 }

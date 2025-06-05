@@ -3,29 +3,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 @Entity
+@EqualsAndHashCode(callSuper=false)
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long customerid;
+@PrimaryKeyJoinColumn(name = "customerid") 
+
+public class Customer extends People{
+
     String username;
     String password;
-    String firstname;
-    String lastname;
     String gender;
     String cardnumber;
     String phone;
@@ -33,12 +27,15 @@ public class Customer {
     String address;
     @OneToMany(mappedBy="customer")
     List<CartItem> cart = new ArrayList<>();
-    public Customer(Long customerid, String username, String password, String firstname,
-            String lastname) {
-        this.customerid = customerid;
+
+    public Customer(Long peopleid, String name, String username, String password) {
+        super(peopleid, name);
         this.username = username;
         this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
+    }
+    public Customer(String username, String password) {
+        this.username = username;
+        this.password = password;
     }   
+    
 }

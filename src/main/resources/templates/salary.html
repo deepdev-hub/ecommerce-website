@@ -1,16 +1,22 @@
-<!-- templates/employee-salary.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lương cá nhân</title>
+    <title>Tính lương nhân viên</title>
 </head>
 <body>
-    <h1>Thông tin lương của bạn</h1>
+    <h2>Trang tính lương của [[${staff.storestaffusername}]]</h2>
 
-    <p><strong>Họ tên:</strong> <span th:text="${staff.storestaffname}"></span></p>
-    <p><strong>Chức vụ:</strong> <span th:text="${staff.position}"></span></p>
-    <!-- <p><strong>Lương cơ bản:</strong> <span th:text="${employee.baseSalary}"></span> VNĐ</p>
-    <p><strong>Thưởng:</strong> <span th:text="${employee.bonus}"></span> VNĐ</p> -->
-    <p><strong>Tổng lương:</strong> <span th:text="${salary}"></span> VNĐ</p>
+    <table border="1">
+        <tr><th>Họ tên</th><td th:text="${staff.name}">Tên</td></tr>
+        <!-- <tr><th>Chức vụ</th><td th:text="${staff.position}">Chức vụ</td></tr> -->
+        <tr><th>Giờ làm</th><td th:text="${staff.workhour}">0</td></tr>
+        <tr><th>Hệ số lương</th><td th:text="${staff.hesoluong}">0.0</td></tr>
+        <tr><th>Luong co ban</th><td>
+
+            <span th:text="${T(com.example.ecommerce.model.StoreStaff).getLuongcoban()}">0</span>
+        </td></tr>
+        <!-- <tr><th>Lương tối đa</th><td th:text="${T(com.example.ecommerce.model.StoreStaff).luongmax}">0</td></tr> -->
+        <tr><th>Lương thực nhận</th><td th:text="${calculatedSalary}">0</td></tr>
+    </table>
 </body>
 </html>

@@ -11,6 +11,6 @@ public class StoreStaffService {
     @Autowired
     private StoreStaffRepository storeStaffRepository;
     public StoreStaff getStoreStaffById(Long storeStaffId){
-        return storeStaffRepository.findByStorestaffid(storeStaffId);
+        return storeStaffRepository.findByPeopleid(storeStaffId);
     }
 }

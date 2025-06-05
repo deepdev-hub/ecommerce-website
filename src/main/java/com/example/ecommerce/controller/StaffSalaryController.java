@@ -15,15 +15,21 @@ public class StaffSalaryController {
     @Autowired
     private StaffService staffService;
 
-    @GetMapping("/salary")
-    public String showSalary(HttpSession session, Model model) {
-        session.setAttribute("currentcustomer", staffService.getStaffbyId(1L));
-        StoreStaff currentUser = (StoreStaff) session.getAttribute("currentcustomer");
-        if (currentUser == null) {
-            return "redirect:/login"; // chưa đăng nhập
+
+    @GetMapping("/staff/salary")
+    public String viewSalaryPage(HttpSession session, Model model) {
+        // StoreStaff current = (StoreStaff) session.getAttribute("currentstorestaff");
+        StoreStaff current = staffService.getStaffbyId(16L);
+
+        if (current == null) {
+            return "redirect:/login";
         }
-        model.addAttribute("staff", currentUser);
-        model.addAttribute("salary", currentUser.getWorkhour()*50000);
+
+        double calculatedSalary = current.calculateSalary();
+        model.addAttribute("staff", current);
+        model.addAttribute("calculatedSalary", calculatedSalary);
+
         return "salary";
     }
 }
+

@@ -6,5 +6,5 @@ import com.example.ecommerce.model.StoreStaff;
 
 @Repository
 public interface StoreStaffRepository extends JpaRepository<StoreStaff, Long> {
-    StoreStaff findByStorestaffid(Long storestaffid);
+    StoreStaff findByPeopleid(Long storestaffid);
 }

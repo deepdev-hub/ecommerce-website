@@ -29,7 +29,7 @@ public class AdminLoginController {
         model.addAttribute("admin", new Admin());
         List<Admin> allAdmin = adminService.getAllAdmin();
         for(Admin adminsignuped: allAdmin){
-            if(adminsignuped.getAdminusername().equals(adminForm.getAdminusername())&&adminsignuped.getAdminpassword().equals(adminForm.getAdminpassword())){
+            if(adminsignuped.getStorestaffusername().equals(adminForm.getStorestaffusername())&&adminsignuped.getStorestaffpassword().equals(adminForm.getStorestaffpassword())){
                 session.setAttribute("currentadmin", adminsignuped);
                 model.addAttribute("message", "success login ");
                 return "redirect:/";

@@ -1,26 +1,19 @@
 package com.example.ecommerce.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+@EqualsAndHashCode(callSuper=false)
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Admin {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long adminid;
-    @NotBlank(message = "truong nay khong duoc de trong")
-    String adminusername;
-    @NotBlank(message = "truong nay khong duoc de trong")
-    private String adminpassword;
-    private String adminname;
+@PrimaryKeyJoinColumn(name = "adminid") // trùng với cột trong DB
+
+public class Admin extends StoreStaff{
     private String email;
     private String phone;
     private String gender;  

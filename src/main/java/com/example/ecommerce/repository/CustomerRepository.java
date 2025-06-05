@@ -14,6 +14,6 @@ import com.example.ecommerce.model.Customer;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Customer findByUsername(String username);
     @EntityGraph(attributePaths="cart")
-    Optional<Customer> findByCustomerid(Long customerid);
+    Optional<Customer> findByPeopleid(Long customerid);
 
 }

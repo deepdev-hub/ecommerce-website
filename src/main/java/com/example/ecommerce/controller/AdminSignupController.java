@@ -26,7 +26,7 @@ public class AdminSignupController {
 
     @PostMapping("/admin/signup")
     public String dosignup(@ModelAttribute("admin") @Valid Admin admin, BindingResult result, Model model ){
-        if(adminService.existAdmin(admin.getAdminusername())){
+        if(adminService.existAdmin(admin.getStorestaffusername())){
             result.rejectValue("adminusername", "error.admin", "username already exist");
         }
         if(result.hasErrors()){

@@ -13,7 +13,7 @@ public class AdminService {
     @Autowired
     private AdminRepository adminRepository;
     public Admin getAdminByAdminUsername(String adminusername){ 
-        return adminRepository.findByAdminusername(adminusername);
+        return adminRepository.findByStorestaffusername(adminusername);
     }
     public Optional<Admin> getAdminByAdminId(Long adminid){
         return adminRepository.findById(adminid);
@@ -22,7 +22,7 @@ public class AdminService {
         adminRepository.save(admin);
     }
     public boolean existAdmin(String adminusername){
-        return adminRepository.findByAdminusername(adminusername)!=null;
+        return adminRepository.findByStorestaffusername(adminusername)!=null;
     }
     public List<Admin> getAllAdmin(){
         return adminRepository.findAll();

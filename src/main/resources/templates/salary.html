@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tính lương nhân viên</title>
+</head>
+<body>
+    <h2>Trang tính lương của [[${staff.storestaffusername}]]</h2>
+
+    <table border="1">
+        <tr><th>Họ tên</th><td th:text="${staff.name}">Tên</td></tr>
+        <!-- <tr><th>Chức vụ</th><td th:text="${staff.position}">Chức vụ</td></tr> -->
+        <tr><th>Giờ làm</th><td th:text="${staff.workhour}">0</td></tr>
+        <tr><th>Hệ số lương</th><td th:text="${staff.hesoluong}">0.0</td></tr>
+        <tr><th>Luong co ban</th><td>
+
+            <span th:text="${T(com.example.ecommerce.model.StoreStaff).getLuongcoban()}">0</span>
+        </td></tr>
+        <!-- <tr><th>Lương tối đa</th><td th:text="${T(com.example.ecommerce.model.StoreStaff).luongmax}">0</td></tr> -->
+        <tr><th>Lương thực nhận</th><td th:text="${calculatedSalary}">0</td></tr>
+    </table>
+</body>
+</html>

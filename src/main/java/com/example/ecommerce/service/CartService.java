@@ -24,7 +24,7 @@ public class CartService {
     private ProductRepository productRepository;
     @Transactional
     public List<CartItemDTO> getcartItemDTOsByCustomerid(Long customerid){
-        Customer customer = customerRepository.findByCustomerid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
+        Customer customer = customerRepository.findByPeopleid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
         List<CartItem> cart = customer.getCart();
         for (CartItem elem : cart) {
             System.out.println(elem.getCart_itemsid());
@@ -42,11 +42,8 @@ public class CartService {
     }
     @Transactional
     public List<CartItem> getcartItemByCustomerid(Long customerid){
-        Customer customer = customerRepository.findByCustomerid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
+        Customer customer = customerRepository.findByPeopleid(customerid).orElseThrow(()-> new RuntimeException("customer not found"));
         List<CartItem> cart = customer.getCart();
         return cart;
     }
-    // public CartItem getCartItemByProductid(Long productid){
-    //     return cartRepository.fin
-    // }
 }

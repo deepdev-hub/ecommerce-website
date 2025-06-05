@@ -25,7 +25,7 @@ public class AdminProfileController {
     @PostMapping("/admin/profile")
     public String doEditProfile(@ModelAttribute("admin") Admin adminForm, Model model) {
         model.addAttribute("admin", adminForm);
-        if(!adminService.existAdmin(adminForm.getAdminusername()))        {
+        if(!adminService.existAdmin(adminForm.getStorestaffusername()))        {
             adminService.saveAdmin(adminForm);
         }
         return "redirect:/admin/profile";

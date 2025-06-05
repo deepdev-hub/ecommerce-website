@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.example.ecommerce.model.Admin;
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-    Admin findByAdminusername(String adminusername);
+    Admin findByStorestaffusername(String adminusername);
 }

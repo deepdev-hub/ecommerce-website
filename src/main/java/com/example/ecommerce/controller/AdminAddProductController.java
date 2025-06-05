@@ -50,7 +50,6 @@ public class AdminAddProductController {
             productRepository.save(product);
         } catch (IOException e) {
             e.printStackTrace();
-            
             return "error";
         }
         return "redirect:/admin/products/add"; // hoặc hiển thị thông báo thành công

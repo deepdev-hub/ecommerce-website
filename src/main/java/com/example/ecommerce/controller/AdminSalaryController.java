@@ -21,5 +21,4 @@ public class AdminSalaryController {
             model.addAttribute("staffs", staffs);
             return "admin-salary-summary";
         }
-        
 }

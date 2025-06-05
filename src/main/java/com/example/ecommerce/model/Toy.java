@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Toy extends Product {    
-    String isbn;
-    String author;
-    String publisher;
+    int age;
+    String color;
+    String brand;
 }

@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Stationary extends Product {    
-    String isbn;
-    String author;
-    String publisher;
+    String brand;
+    String stationary_type;
 }

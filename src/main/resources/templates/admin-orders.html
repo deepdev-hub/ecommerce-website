@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Quản lý đơn hàng chờ xử lý</title>
+    <link rel="stylesheet" th:href="@{/admin-order-style.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 <h2>Đơn hàng đang chờ xử lý</h2>
-
-<table border="1">
+<table class="order-table">
     <tr>
         <th>ID</th>
         <th>Ngày đặt</th>
@@ -16,9 +17,9 @@
     </tr>
     <tr th:each="order : ${orders}">
         <td th:text="${order.orderid}"></td>
-        <span th:text="${@myDateUtils.format(order.orderdate, 'yyyy-MM-dd HH:mm')}"></span>
-        <td th:text="${order.totalamount}"></td>
-        <td th:text="${order.taxvat}"></td>
+        <td th:text="${@myDateUtils.format(order.orderdate, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${order.totalamount}+'v'+'n'+'đ'"></td>
+        <td th:text="${order.taxvat}+'v'+'n'+'đ'"></td>
         <td>
             <form th:action="@{'/admin/orders/accept/' + ${order.orderid}}" method="post" style="display:inline;">
                 <button type="submit">Accept</button>

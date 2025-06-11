@@ -34,7 +34,10 @@ public class AdminLoginController {
                 return "redirect:/";
             } 
         }
+        
+
         model.addAttribute("message", "login failed!");
         return "redirect:/admin/login";
     }
+
 }

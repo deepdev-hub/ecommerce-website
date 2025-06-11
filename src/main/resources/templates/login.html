@@ -8,8 +8,8 @@
 </head>
 <body>
     <h2>Trang customer đăng nhập</h2>
+    <div th:insert="fragments/header :: header"></div>
     <div class="login-container">
-        <div th:insert="fragments/header :: header"></div>
         <div class="login-tabs">
             <a href = "/admin/login">
                 <button class="tab">Admin</button>
@@ -49,6 +49,7 @@
             <button type="submit" class="login-button">Đăng nhập</button> 
         </form>
     </div>
-    <div th:insert = "fragments/footer :: footer"></div>
+    <div th:insert = "~{fragments/footer :: footer}"></div>
 </body>
 </html>
+

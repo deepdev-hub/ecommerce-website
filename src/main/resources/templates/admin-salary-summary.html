@@ -10,11 +10,11 @@
     <table border="1" cellpadding="5" cellspacing="0">
         <thead>
                 <tr>
-                    <th>checkbox</th>
-                    <th>Sản Phẩm</th>
-                    <th>Đơn Giá</th>
-                    <th>Số Lượng</th>
-                    <th>Số Tiền</th>
+                    <th>Name</th>
+                    <th>workhour</th>
+                    <th>he so luong</th>
+                    <th>Luong co ban</th>
+                    <th>Tong luong</th>
                 </tr>
             </thead>
     <tr th:each="staff : ${staffs}" style="margin-bottom: 20px;">
@@ -26,9 +26,10 @@
                     <span th:text="${T(com.example.ecommerce.model.StoreStaff).getLuongcoban()}">0</span>
                 </td>
             <!-- <tr><th>Lương tối đa</th><td th:text="${T(com.example.ecommerce.model.StoreStaff).luongmax}">0</td></tr> -->
-                <td th:text="${#numbers.formatDecimal(staff.workhour * staff.hesoluong * T(com.example.ecommerce.model.StoreStaff).getLuongcoban(), 0, 'COMMA', 2, 'POINT')}">
+                <!-- <td th:text="${#numbers.formatDecimal(staff.workhour * staff.hesoluong * T(com.example.ecommerce.model.StoreStaff).getLuongcoban(), 0, 'COMMA', 2, 'POINT')}">
                     0
-                </td>
+                </td> -->
+                <td th:text="${staff.calculateSalary()}">0.0</td>
 
         </tr>
     </table>

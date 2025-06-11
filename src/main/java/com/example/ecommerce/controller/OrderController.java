@@ -8,14 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.ecommerce.DTO.CartItemDTO;
-import com.example.ecommerce.model.CartItem;
 import com.example.ecommerce.model.Customer;
 import com.example.ecommerce.model.Order;
 import com.example.ecommerce.service.CartService;
 import com.example.ecommerce.service.OrderService;
 
 import jakarta.servlet.http.HttpSession;
-
 
 @Controller
 public class OrderController {
@@ -46,4 +44,3 @@ public class OrderController {
         return "redirect:/ordersuccess";
     }
 }
-

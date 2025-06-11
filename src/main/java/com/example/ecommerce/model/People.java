@@ -19,6 +19,6 @@ import lombok.NoArgsConstructor;
 public abstract class People {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long peopleid;
-    String name;
+    protected Long peopleid;
+    protected String name;
 }

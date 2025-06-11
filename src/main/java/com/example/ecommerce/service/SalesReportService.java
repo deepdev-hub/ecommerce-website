@@ -27,4 +27,3 @@ public class SalesReportService {
         }).collect(Collectors.toList());
     }
 }
-

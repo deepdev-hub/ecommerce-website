@@ -2,6 +2,7 @@ package com.example.ecommerce.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -18,15 +19,17 @@ import lombok.NoArgsConstructor;
 
 public class Customer extends People{
 
-    String username;
-    String password;
-    String gender;
-    String cardnumber;
-    String phone;
-    String email;
-    String address;
-    @OneToMany(mappedBy="customer")
-    List<CartItem> cart = new ArrayList<>();
+    private String username;
+    private String password;
+    private String gender;
+    private String cardnumber;
+    private String phone;
+    private String email;
+    private String address;
+    @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
+    private List<CartItem> cart = new ArrayList<>();
+
+
 
     public Customer(Long peopleid, String name, String username, String password) {
         super(peopleid, name);

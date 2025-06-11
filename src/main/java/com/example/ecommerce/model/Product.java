@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+
     private Long productid;
     private String name ;
     private int quantity;  
@@ -39,4 +40,5 @@ public class Product {
         this.description = description;
         this.categoryid = categoryid;
     }
+
 }

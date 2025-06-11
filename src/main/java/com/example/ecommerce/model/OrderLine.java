@@ -19,15 +19,15 @@ import lombok.NoArgsConstructor;
 public class OrderLine {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long orderlineid;
+    private Long orderlineid;
     @JoinColumn(name="orderid")
     @ManyToOne
-    Order order;
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name="productid")
-    Product product;
-
-    Integer quantity;    
+    private Product product;
+ 
+    private Integer quantity;    
     
     }

@@ -20,12 +20,13 @@ import lombok.NoArgsConstructor;
 public class CartItem {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long cart_itemsid;
+    private Long cart_itemsid;
     @ManyToOne
     @JoinColumn(name="customerid")
-    Customer customer;
+    private Customer customer;
     @ManyToOne
     @JoinColumn(name="productid")
     private Product product;
-    int quantity;
+    private int quantity;
+    
 }

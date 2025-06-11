@@ -33,6 +33,7 @@ public class OrderService {
             //xu ly tru san pham trong cart
         }
         Order order = new Order();
+        
         order.setOrderdate(LocalDateTime.now());
         order.setCustomer(customer);
         order.setStatus("Processing");

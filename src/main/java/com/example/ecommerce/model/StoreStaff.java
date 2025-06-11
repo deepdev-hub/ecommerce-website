@@ -45,6 +45,7 @@ public class StoreStaff extends People  implements HaveSalary{
         this.hesoluong+=step;
         return true;
     }
+    
     public static double getLuongcoban() {
     return luongcoban;
 }
